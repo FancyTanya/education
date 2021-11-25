@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${EDUCATION_DB_HOST:localhost}:3306/education
+    username: root
+    password: gromova

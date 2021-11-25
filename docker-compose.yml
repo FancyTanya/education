@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  start-education:
+    image: start-education:0.0.1-SNAPSHOT
+    container_name: start-education
+    environment:
+      EDUCATION_DB_HOST: db
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+
+  db:
+    image: mysql
+    container_name: education
+    restart: always
+    environment:
+      MYSQL_PASSWORD: root
+      MYSQL_DB: gromova
+    volumes:
+      - db-data:/var/lib/mysql/data
+    ports:
+      - "3306:3306"
+
+volumes:
+  db-data:
+    driver: local
