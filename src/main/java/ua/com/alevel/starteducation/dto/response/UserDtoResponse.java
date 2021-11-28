@@ -22,6 +22,7 @@ public class UserDtoResponse {
     private String email;
     private OffsetDateTime createdAt;
     private Set<KnownAuthority> authorities;
+    private String password;
     private EducationUser user;
 
     public UserDtoResponse(Long id, String email, OffsetDateTime createdAt, Set<KnownAuthority> authorities) {

@@ -12,4 +12,6 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
     Page<StudentDtoResponse> findAllByTeacher(Long teacherId, Pageable pageable);
+
+    boolean existsByEmail(String email);
 }

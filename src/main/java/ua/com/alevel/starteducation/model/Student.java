@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
+import ua.com.alevel.starteducation.model.auth.KnownAuthority;
 
 import javax.persistence.*;
 import java.util.List;
@@ -39,4 +40,7 @@ public class Student extends BaseEntity{
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
+    public KnownAuthority getRole() {
+        return KnownAuthority.ROLE_STUDENT;
+    }
 }

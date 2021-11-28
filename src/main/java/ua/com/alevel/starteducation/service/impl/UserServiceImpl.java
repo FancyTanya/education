@@ -93,7 +93,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserDtoResponse createTeacher(SaveUserRequest request) {
         validateUniqueFields(request);
-        return UserDtoResponse.fromUser(save(request, getTeacherAuthorities()));
+        return UserDtoResponse.fromUser(save(request, getAdminAuthorities()));
     }
 
     @Override
@@ -176,15 +176,6 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() ->EducationException.authorityNotFound(KnownAuthority.ROLE_USER.name()));
         Map<KnownAuthority, EducationUserAuthority> authorityMap = new EnumMap<KnownAuthority, EducationUserAuthority>(KnownAuthority.class);
         authorityMap.put(KnownAuthority.ROLE_USER, authority);
-        return authorityMap;
-    }
-
-    private Map<KnownAuthority, EducationUserAuthority> getTeacherAuthorities() {
-        EducationUserAuthority authority = authorityRepository
-                .findById(KnownAuthority.ROLE_TEACHER)
-                .orElseThrow(() -> EducationException.authorityNotFound(KnownAuthority.ROLE_TEACHER.name()));
-        Map<KnownAuthority, EducationUserAuthority> authorityMap = new EnumMap<KnownAuthority, EducationUserAuthority>(KnownAuthority.class);
-        authorityMap.put(KnownAuthority.ROLE_TEACHER, authority);
         return authorityMap;
     }
 

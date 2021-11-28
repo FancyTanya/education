@@ -5,9 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
+import ua.com.alevel.starteducation.model.auth.EducationUserAuthority;
+import ua.com.alevel.starteducation.model.auth.KnownAuthority;
 
 import javax.persistence.*;
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
 
 @Setter
 @Getter
@@ -42,5 +46,9 @@ public class Teacher extends BaseEntity{
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+    }
+
+    public KnownAuthority getRole() {
+        return KnownAuthority.ROLE_TEACHER;
     }
 }
