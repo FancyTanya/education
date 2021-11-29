@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/grades")
+@RequestMapping("/api/v1/grades")
 public class GradeController {
 
     private final GradeFacade gradeFacade;

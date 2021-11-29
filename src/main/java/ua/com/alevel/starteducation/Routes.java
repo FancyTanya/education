@@ -1,7 +1,5 @@
 package ua.com.alevel.starteducation;
 
-import java.util.UUID;
-
 public class Routes {
 
     private Routes() {
@@ -12,7 +10,9 @@ public class Routes {
 
     public static final String USERS = API_ROOT + "/users";
 
-    public static final String FILES = API_ROOT + "/files";
+    public static final String STUDENTS = API_ROOT + "/students";
+
+    public static final String TEACHERS = API_ROOT + "/teachers";
 
     public static final String TOKEN = API_ROOT + "/token";
 
@@ -20,7 +20,4 @@ public class Routes {
         return USERS + '/' + id;
     }
 
-    public static String file(UUID id) {
-        return FILES + '/' + id;
-    }
 }
